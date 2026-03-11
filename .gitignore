@@ -1,0 +1,21 @@
+# Credentials (NEVER commit these)
+google-ads.yaml
+api-credentials.json
+*-credentials.json
+*-service-account.json
+!google-ads.yaml.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Claude Code local config
+.mcp.json
+
+# OS
+.DS_Store

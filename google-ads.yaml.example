@@ -1,0 +1,19 @@
+# Google Ads API Configuration
+# Copy this file to google-ads.yaml and fill in your values
+#
+# To obtain these credentials:
+# 1. Create a Google Cloud project at https://console.cloud.google.com/
+# 2. Enable the Google Ads API
+# 3. Create a service account and download the JSON key file
+# 4. Get a developer token from your Google Ads Manager account
+#    (Tools & Settings > Setup > API Center)
+# 5. Set the environment variables below or use this YAML config
+
+# Path to your service account JSON key file
+# export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
+
+# Your Google Ads API developer token
+# export GOOGLE_ADS_DEVELOPER_TOKEN="your-developer-token"
+
+# (Optional) Manager account ID for accessing client accounts
+# export GOOGLE_ADS_LOGIN_CUSTOMER_ID="1234567890"
