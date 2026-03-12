@@ -6,9 +6,7 @@ An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that 
 
 - **Python 3.10+** installed
 - **pipx** installed ([installation guide](https://pipx.pypa.io/stable/installation/))
-- A **Google Cloud project** with the Google Ads API enabled
-- A **Google Ads developer token** (from your Manager account > Tools & Settings > API Center)
-- A **service account** with access to your Google Ads accounts
+- A **Google Ads API credentials file** (see step 2)
 
 ## Quick Start
 
@@ -19,37 +17,17 @@ git clone https://github.com/googleads/google-ads-mcp.git
 cd google-ads-mcp
 ```
 
-### 2. Create a Google Cloud project and enable the Google Ads API
+### 2. Get API credentials
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project (or select an existing one)
-3. Enable the **Google Ads API** from the API Library
+Reach out to **Justin Arak** or **Sal Rapisarldi** to get the API credentials file (`api-credentials.json`) and developer token. Save the credentials file somewhere safe (e.g., `~/google-ads-mcp/api-credentials.json`).
 
-### 3. Create a service account
-
-1. In your Google Cloud project, go to **IAM & Admin > Service Accounts**
-2. Create a new service account
-3. Create and download a JSON key file
-4. Save it somewhere safe (e.g., `~/google-ads-mcp/api-credentials.json`)
-
-### 4. Get your developer token
-
-1. Sign in to your Google Ads **Manager account**
-2. Go to **Tools & Settings > Setup > API Center**
-3. Copy your developer token
-
-### 5. Grant the service account access to Google Ads
-
-1. In your Google Ads Manager account, go to **Admin > Access and security**
-2. Add the service account email address with **Read-only** access
-
-### 6. Install with pipx
+### 3. Install with pipx
 
 ```bash
 pipx install -e .
 ```
 
-### 7. Register with Claude Code
+### 4. Register with Claude Code
 
 Add the MCP server to Claude Code with the required environment variables:
 
@@ -63,7 +41,7 @@ claude mcp add google-ads-mcp \
 
 > **Note:** `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is optional but recommended if you access client accounts through a Manager account. Use the 10-digit account ID without hyphens.
 
-### 8. Verify it works
+### 5. Verify it works
 
 Start Claude Code and try:
 
@@ -100,8 +78,8 @@ Make sure you passed the `-e GOOGLE_ADS_DEVELOPER_TOKEN="..."` flag when registe
 Ensure `GOOGLE_APPLICATION_CREDENTIALS` points to a valid service account JSON key file and the path is correct.
 
 ### "The caller does not have permission"
-- Verify the service account email has been granted access in Google Ads (Admin > Access and security)
-- Check that the Google Ads API is enabled in your Google Cloud project
+- Verify the service account has been granted access in Google Ads (Admin > Access and security)
+- Check that the Google Ads API is enabled in the Google Cloud project
 - If using a Manager account, ensure `GOOGLE_ADS_LOGIN_CUSTOMER_ID` is set correctly
 
 ### "Developer token is not approved"
@@ -109,7 +87,7 @@ Ensure `GOOGLE_APPLICATION_CREDENTIALS` points to a valid service account JSON k
 - Apply for **Basic** or **Standard** access in the API Center if you need to access production accounts
 
 ### Server not showing up in Claude Code
-Run `claude mcp list` to check registered servers. If missing, re-run the `claude mcp add` command from step 7.
+Run `claude mcp list` to check registered servers. If missing, re-run the `claude mcp add` command from step 4.
 
 ## License
 
