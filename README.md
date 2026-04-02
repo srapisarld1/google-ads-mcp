@@ -13,7 +13,7 @@ An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that 
 ### 1. Clone this repository
 
 ```bash
-git clone https://github.com/googleads/google-ads-mcp.git
+git clone https://github.com/srapisarld1/google-ads-mcp.git
 cd google-ads-mcp
 ```
 
@@ -88,6 +88,20 @@ Ensure `GOOGLE_APPLICATION_CREDENTIALS` points to a valid service account JSON k
 
 ### Server not showing up in Claude Code
 Run `claude mcp list` to check registered servers. If missing, re-run the `claude mcp add` command from step 4.
+
+## Updating
+
+The MCP server does not auto-update. When new changes are pushed to this repo,
+update your local installation:
+
+```bash
+cd google-ads-mcp
+git pull
+```
+
+Since you installed with `pipx install -e .` (editable mode), the changes take
+effect immediately — no reinstall needed. Just restart Claude Code to pick up
+the new version.
 
 ## License
 
